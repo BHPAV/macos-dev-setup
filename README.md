@@ -1,72 +1,133 @@
-# Mac Setup Configuration
+# macOS Development Environment Setup
 
-This repository contains all the configuration files and scripts needed to quickly set up a new MacBook Pro with your preferred settings, applications, and development environment.
+A minimal-first approach to setting up a macOS development environment, focused on Python, SQLite, Neo4j, Flask, and ML/RL R&D work.
 
-## Project Structure
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone git@github.com:BHPAV/macos-dev-setup.git
+cd macos-dev-setup
+
+# Install Homebrew and core applications
+./scripts/install-homebrew-minimal.sh
+
+# Configure Git
+./scripts/setup-git.sh
+
+# Set up GitHub SSH and CLI
+./scripts/setup-github.sh
+```
+
+## 📦 What's Included
+
+### Core Development Tools (Day 1 Essentials)
+
+- **Browser**: Arc (lightweight Chromium with excellent profile isolation)
+- **Security**: 1Password (password management with SSH agent support)
+- **Cloud Storage**: OneDrive (Microsoft ecosystem integration)
+- **Communication**: Slack, Zoom
+- **Development**:
+  - VS Code (primary editor)
+  - iTerm2 (terminal emulator)
+  - Docker (containerization)
+  - Neo4j Desktop (graph database)
+  - TablePlus (database GUI)
+  - Insomnia (API testing)
+- **Window Management**: Rectangle
+
+### Quality-of-Life Utilities
+
+- Alfred (advanced Spotlight replacement)
+- Bartender (menu bar management)
+- Amphetamine (prevent sleep)
+- iStat Menus (system monitoring)
+- CleanShot X (screenshots/recording)
+
+### Development Stack Additions
+
+- DBeaver Lite (universal DB GUI)
+- Neo4j Bloom (graph visualization)
+- TablePlus CLI
+- Development Environment Tools:
+  - asdf (version management)
+  - direnv (environment variables)
+  - make (build automation)
+
+## 📂 Repository Structure
 
 ```
 mac-setup/
-├── README.md                 # This file
-├── setup-plan.md            # Detailed setup plan and checklist
-├── scripts/                 # Automation scripts
-│   ├── install-homebrew.sh  # Homebrew installation
-│   ├── install-apps.sh      # Application installation
-│   ├── setup-shell.sh       # Shell configuration
-│   └── setup-dev.sh         # Development environment setup
-├── configs/                 # Configuration files
-│   ├── shell/               # Shell configurations
-│   │   ├── .zshrc          # Zsh configuration
-│   │   └── .zsh_aliases    # Custom aliases
-│   ├── git/                 # Git configurations
-│   │   ├── .gitconfig      # Global git config
-│   │   └── .gitignore_global # Global gitignore
-│   ├── vscode/              # VS Code settings
-│   │   ├── settings.json    # VS Code settings
-│   │   └── extensions.txt   # VS Code extensions list
-│   └── system/              # System preferences
-│       ├── dock-settings.sh # Dock configuration
-│       └── security.sh      # Security settings
 ├── apps/                    # Application lists
-│   ├── essential-apps.txt   # Essential applications
-│   ├── dev-apps.txt         # Development tools
-│   └── productivity-apps.txt # Productivity tools
-└── docs/                    # Documentation
-    ├── setup-guide.md       # Step-by-step setup guide
-    └── troubleshooting.md   # Common issues and solutions
+│   ├── dev-apps.txt        # Development tools
+│   ├── essential-apps.txt  # Core applications
+│   └── productivity-apps.txt
+├── configs/                 # Configuration files
+│   ├── git/
+│   ├── shell/
+│   ├── system/
+│   └── vscode/
+├── docs/                    # Documentation
+├── scripts/                 # Setup scripts
+│   ├── Brewfile            # Homebrew packages
+│   ├── install-homebrew-minimal.sh
+│   ├── setup-git.sh
+│   └── setup-github.sh
+└── setup-plan.md           # Setup strategy
 ```
 
-## Quick Start
+## 🛠 Setup Scripts
 
-1. Clone this repository to your new Mac
-2. Run the setup scripts in order:
-   ```bash
-   chmod +x scripts/*.sh
-   ./scripts/install-homebrew.sh
-   ./scripts/install-apps.sh
-   ./scripts/setup-shell.sh
-   ./scripts/setup-dev.sh
-   ```
-3. Follow the detailed setup guide in `docs/setup-guide.md`
+1. **`install-homebrew-minimal.sh`**
+   - Installs Homebrew
+   - Sets up core applications via Brewfile
+   - Configures basic system settings
 
-## Features
+2. **`setup-git.sh`**
+   - Configures Git identity
+   - Sets up useful aliases
+   - Configures secure defaults
 
-- **Automated Installation**: Scripts to install Homebrew, applications, and development tools
-- **Shell Configuration**: Pre-configured Zsh with Oh My Zsh, themes, and aliases
-- **Git Setup**: Global git configuration and useful aliases
-- **VS Code Configuration**: Settings and extensions for development
-- **System Preferences**: Dock settings, security configurations, and more
-- **Application Management**: Curated lists of essential, development, and productivity apps
+3. **`setup-github.sh`**
+   - Generates SSH keys
+   - Configures GitHub CLI
+   - Sets up SSH authentication
 
-## Prerequisites
+## 🔒 Security Features
 
-- macOS (tested on macOS Sonoma and later)
-- Administrator privileges
-- Internet connection
+- SSH key generation with ED25519
+- Secure Git defaults
+- macOS Keychain integration
+- 1Password SSH agent support
 
-## Contributing
+## 🎯 Design Philosophy
 
-When you make changes to your setup, update the corresponding configuration files and scripts in this repository to keep it current for future installations.
+1. **Minimal First**: Start with core tools, add utilities only when needed
+2. **Reproducible**: Automated setup via Homebrew and scripts
+3. **Secure**: Best practices for Git, SSH, and system security
+4. **Efficient**: Optimized for Python, SQLite, Neo4j, and Flask development
 
-## License
+## 📚 Additional Resources
 
-This project is for personal use. Feel free to adapt it for your own needs. 
+- [Arc Browser Documentation](https://arc.net/docs)
+- [VS Code Python Setup](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Neo4j Desktop Guide](https://neo4j.com/developer/neo4j-desktop/)
+- [GitHub CLI Manual](https://cli.github.com/manual/)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by various macOS setup guides and best practices
+- Built with a focus on minimal, efficient development workflows
+- Community feedback and contributions welcome 
