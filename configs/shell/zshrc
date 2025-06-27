@@ -1,0 +1,67 @@
+# Mac Setup - Zsh Configuration
+# This file should be sourced from ~/.zshrc
+
+# Homebrew setup (for Apple Silicon Macs)
+if [[ $(uname -m) == "arm64" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# asdf version manager
+if command -v asdf &> /dev/null; then
+    . $(brew --prefix asdf)/libexec/asdf.sh
+fi
+
+# direnv - automatic environment variable loading
+if command -v direnv &> /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
+# Add custom PATH entries
+export PATH="$HOME/bin:$PATH"
+
+# Set default editor
+export EDITOR="code"
+export VISUAL="$EDITOR"
+
+# Better history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+
+# Useful aliases
+alias ll='ls -la'
+alias l='ls -l'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias g='git'
+alias gc='git commit'
+alias gp='git push'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log --oneline -10'
+
+# Development aliases
+alias dc='docker-compose'
+alias k='kubectl'
+alias tf='terraform'
+
+# Directory shortcuts
+alias dev='cd ~/Dev'
+alias docs='cd ~/Documents'
+alias dl='cd ~/Downloads'
+
+# Function to create directory and cd into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Function to search with ripgrep and open in VS Code
+rgc() {
+    rg "$@" -l | xargs code
+}

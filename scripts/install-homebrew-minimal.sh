@@ -36,9 +36,20 @@ else
     fi
 fi
 
-print_status "Installing Brewfile..."
+print_status "Installing from Brewfile..."
+
+# Check for existing Docker installation
+if [[ -d "/Applications/Docker.app" ]] && ! brew list --cask docker &> /dev/null; then
+    print_warning "Docker.app already exists. Skipping Docker cask installation."
+    print_warning "To manage Docker with Homebrew, remove existing Docker.app first."
+fi
+
 # Install everything from our minimal Brewfile
-brew bundle --file=scripts/Brewfile
+print_status "Running brew bundle..."
+if ! brew bundle --file=scripts/Brewfile; then
+    print_warning "Some packages failed to install. Check the output above."
+    print_warning "Run './scripts/verify-installation.sh' to see what's missing."
+fi
 
 print_status "Cleaning up..."
 brew cleanup

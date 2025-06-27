@@ -1,9 +1,7 @@
 # Brewfile - Automated Mac setup for minimal development environment
 
 # Taps
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/bundle"
+# Note: homebrew/cask, homebrew/core, and homebrew/bundle are now built-in
 tap "github/gh"
 
 # Core CLI tools
@@ -31,7 +29,7 @@ cask "neo4j-desktop" # Graph database GUI
 # Quality of Life (comment out if not needed immediately)
 cask "alfred"       # Spotlight replacement
 cask "bartender"    # Menu bar organization
-cask "amphetamine"  # Sleep prevention
+# cask "amphetamine"  # Sleep prevention - No longer available as cask, install from Mac App Store instead
 cask "appcleaner"   # Clean uninstaller
 cask "istat-menus"  # System monitoring
 cask "cleanshot"    # Screenshot tool
