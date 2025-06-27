@@ -1,0 +1,80 @@
+# VS Code Extensions
+# Install these extensions for a complete development environment
+
+# Essential Extensions
+ms-vscode.vscode-typescript-next
+ms-python.python
+ms-python.black-formatter
+ms-python.flake8
+ms-python.mypy-type-checker
+ms-python.pytest-adapter
+ms-python.jupyter
+ms-python.vscode-pylance
+
+# Language Support
+ms-vscode.vscode-json
+ms-vscode.vscode-yaml
+ms-vscode.vscode-markdown
+bradlc.vscode-tailwindcss
+ms-vscode.vscode-css-peek
+ms-vscode.vscode-html-css-support
+
+# Git & Version Control
+ms-vscode.vscode-git
+ms-vscode.vscode-git-graph
+eamodio.gitlens
+ms-vscode.vscode-github
+ms-vscode.vscode-github-pull-request
+ms-vscode.vscode-github-issues
+
+# Docker & Cloud
+ms-vscode.vscode-docker
+ms-azuretools.vscode-docker
+ms-kubernetes-tools.vscode-kubernetes-tools
+ms-vscode.vscode-kubernetes-tools
+hashicorp.terraform
+ms-vscode.vscode-azureterraform
+
+# Code Quality
+esbenp.prettier-vscode
+ms-vscode.vscode-eslint
+ms-vscode.vscode-prettier
+ms-vscode.vscode-json
+ms-vscode.vscode-yaml
+
+# Themes & Icons
+zhuangtongfa.material-theme
+pkief.material-icon-theme
+ms-vscode.theme-tomorrowkit
+ms-vscode.theme-kimbie-dark
+
+# Productivity
+ms-vscode.vscode-snippets
+ms-vscode.vscode-emmet
+ms-vscode.vscode-autoprefixer
+ms-vscode.vscode-babel
+ms-vscode.vscode-react-native
+
+# Testing
+ms-vscode.vscode-jest
+ms-vscode.vscode-mocha-test-adapter
+ms-vscode.vscode-test-explorer
+ms-vscode.vscode-test-adapter-converter
+
+# Database
+ms-mssql.mssql
+ms-vscode.vscode-cosmosdb
+ms-vscode.vscode-mongodb
+ms-vscode.vscode-redis
+
+# Remote Development
+ms-vscode-remote.vscode-remote-extensionpack
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-wsl
+
+# AI & Copilot
+github.copilot
+github.copilot-chat
+ms-vscode.vscode-github-copilot
+ms-vscode.vscode-github-copilot-chat 

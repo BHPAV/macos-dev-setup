@@ -1,0 +1,42 @@
+# Brewfile - Automated Mac setup for minimal development environment
+
+# Taps
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/bundle"
+tap "github/gh"
+
+# Core CLI tools
+brew "git"
+brew "gh"           # GitHub CLI
+brew "asdf"         # Version manager
+brew "direnv"       # Environment manager
+brew "make"         # Build automation
+brew "neo4j"        # Graph database CLI
+
+# GUI Applications
+cask "arc"          # Primary browser
+cask "1password"    # Password manager
+cask "onedrive"     # Cloud storage
+cask "slack"        # Team communication
+cask "zoom"         # Video conferencing
+cask "visual-studio-code"  # Code editor
+cask "iterm2"       # Terminal
+cask "rectangle"    # Window management
+cask "docker"       # Container platform
+cask "tableplus"    # Database GUI
+cask "insomnia"     # API testing
+cask "neo4j-desktop" # Graph database GUI
+
+# Quality of Life (comment out if not needed immediately)
+cask "alfred"       # Spotlight replacement
+cask "bartender"    # Menu bar organization
+cask "amphetamine"  # Sleep prevention
+cask "appcleaner"   # Clean uninstaller
+cask "istat-menus"  # System monitoring
+cask "cleanshot"    # Screenshot tool
+cask "vlc"          # Media player
+
+# Additional Development Tools (uncomment as needed)
+# cask "dbeaver-community" # Universal database tool
+# brew "pyenv"      # Python version management 

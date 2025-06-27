@@ -1,0 +1,63 @@
+# Essential Applications
+# A minimal-first approach focused on Python, SQLite, Neo4j, Flask, and ML/RL R&D work
+
+# Core Workflow (Day 1 Essentials)
+
+## Browsers
+arc                     # Primary browser - lightweight Chromium with excellent profile isolation
+safari                  # Built-in, backup for Apple Pay and system integration
+
+## Security & Passwords
+1password               # Password manager with best macOS integration and SSH agent support
+
+## Cloud Storage
+onedrive                # Primary cloud storage, integrates with Office/Teams ecosystem
+
+## Communication
+slack                   # Primary team communication
+zoom                    # Video conferencing standard
+
+## Development
+visual-studio-code      # Primary code editor with excellent Neo4j and Python support
+iterm2                  # Terminal emulator with advanced features (install via Homebrew)
+homebrew                # Package manager for automated setup
+neo4j-desktop           # Local graph database development and testing
+docker                  # Container management (or Colima+Docker-CLI for lighter alternative)
+insomnia                # API testing with GraphQL support
+tableplus               # Fast, SQLite-friendly database GUI
+git                     # Version control
+github-cli              # GitHub command line interface
+
+## Window Management
+rectangle               # MIT-licensed window manager without telemetry
+
+# Quality-of-Life Utilities (Install as Needed)
+
+## System Utilities
+alfred                  # Advanced Spotlight replacement with workflows (optional Powerpack)
+bartender              # Menu bar management for cleaner UI
+amphetamine            # Prevent sleep mode
+appcleaner             # Clean app uninstallation
+istat-menus            # System monitoring and stats
+cleanshot-x            # Enhanced screenshot and recording tools
+vlc                    # Universal media player
+
+# Development Stack Additions
+
+## Database Tools
+dbeaver-lite           # Universal database GUI for multiple databases
+neo4j-bloom            # Visual exploration for Neo4j
+tableplus-cli          # CLI companion for TablePlus
+
+## Development Environment
+asdf                   # Version manager for multiple languages
+pyenv                  # Python version management
+direnv                 # Project-specific environment variables
+make                   # Build automation
+
+# Notes
+# 1. Install core workflow tools on Day 1
+# 2. Add quality-of-life utilities only when specific needs arise
+# 3. Use Homebrew Bundle (Brewfile) for automated setup
+# 4. Skip duplicate tools in each category to maintain a lean system
+# 5. Avoid installing multiple tools that serve the same purpose 

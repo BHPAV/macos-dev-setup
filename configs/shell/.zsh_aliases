@@ -1,0 +1,21 @@
+# Zsh Aliases
+# This is a template - customize as needed
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# List directory contents
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Git aliases
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+# Add your custom aliases here 
