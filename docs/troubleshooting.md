@@ -16,27 +16,44 @@ Warning: Tap homebrew/bundle already tapped.
 
 ### Docker Installation Fails
 
-**Issue**: Docker installation fails with permission errors or "target already exists" error.
+**Issue**: Docker installation fails with permission errors, xattr errors, or "target already exists" error.
 
 **Possible Causes**:
 1. Docker Desktop is already installed outside of Homebrew
 2. Permissions issue with existing Docker.app
+3. xattr metadata conflicts
 
 **Solutions**:
-1. Check if Docker is already installed:
+
+1. **Use the fix-docker.sh script** (recommended):
+   ```bash
+   ./scripts/fix-docker.sh
+   ```
+
+2. **Manual fix** - Check if Docker is already installed:
    ```bash
    ls -la /Applications/Docker.app
    ```
 
-2. If Docker exists and you want to manage it with Homebrew:
+3. If Docker exists and you want to manage it with Homebrew:
    ```bash
+   # First quit Docker Desktop if running
+   osascript -e 'quit app "Docker"'
+   
+   # Remove existing installation
    sudo rm -rf /Applications/Docker.app
+   rm -rf ~/Library/Group\ Containers/group.com.docker
+   rm -rf ~/Library/Containers/com.docker.docker
+   
+   # Reinstall via Homebrew
    brew install --cask docker
    ```
 
-3. If you prefer to keep your existing Docker installation:
+4. If you prefer to keep your existing Docker installation:
    - Remove `cask "docker"` from the Brewfile
    - Continue using your existing Docker Desktop
+
+5. **Alternative**: Download directly from [Docker's website](https://www.docker.com/products/docker-desktop/)
 
 ### Amphetamine Not Found
 
@@ -56,17 +73,29 @@ brew install --cask caffeine
 
 **Issue**: After installation, tools like `asdf` and `direnv` don't work.
 
-**Solution**: The shell configuration needs to be sourced. Either:
+**Solution**: 
 
-1. Source the configuration file:
+1. **Use the configure-shell.sh script** (recommended):
    ```bash
-   echo "source ~/Dev/mac-setup/configs/shell/zshrc" >> ~/.zshrc
+   ./scripts/configure-shell.sh
    source ~/.zshrc
    ```
 
-2. Or copy the configuration:
+2. **Manual configuration** - Add to your ~/.zshrc:
    ```bash
-   cat ~/Dev/mac-setup/configs/shell/zshrc >> ~/.zshrc
+   # Homebrew
+   eval "$(/opt/homebrew/bin/brew shellenv)"
+   
+   # asdf
+   . /opt/homebrew/opt/asdf/libexec/asdf.sh
+   
+   # direnv
+   eval "$(direnv hook zsh)"
+   ```
+
+3. **Alternative** - Use the provided shell configuration:
+   ```bash
+   echo "source ~/Dev/mac-setup/configs/shell/zshrc" >> ~/.zshrc
    source ~/.zshrc
    ```
 
@@ -146,6 +175,22 @@ brew cleanup
 brew doctor
 ```
 
+## Known Issues
+
+### macOS Pre-release Warning
+
+**Issue**: "You are using macOS X.X. We do not provide support for this pre-release version."
+
+**Solution**: This warning appears when using macOS beta versions. The installation usually succeeds despite the warning. If you encounter issues:
+- Report them to Homebrew's GitHub repository
+- Consider downgrading to a stable macOS release for production environments
+
+### Homebrew Bundle Tap Deprecated
+
+**Issue**: "Error: homebrew/bundle was deprecated. This tap is now empty."
+
+**Solution**: The `brew bundle` command is now built into Homebrew. The Brewfile has been updated to remove this tap reference.
+
 ## Getting Help
 
 If you continue to experience issues:
@@ -154,3 +199,4 @@ If you continue to experience issues:
 2. Search for specific error messages
 3. Check if the package exists: `brew search package-name`
 4. View package info: `brew info package-name` or `brew info --cask application-name`
+5. Run the verification script: `./scripts/verify-installation.sh`

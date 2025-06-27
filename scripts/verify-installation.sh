@@ -3,7 +3,12 @@
 # Mac Setup - Installation Verification Script
 # This script checks the status of all installations
 
-set -e
+# Mac Setup - Installation Verification Script
+# Note: We don't use 'set -e' here to continue checking even if commands fail
+
+# Capture output for summary
+exec > >(tee /tmp/verify_output)
+exec 2>&1
 
 # Colors for output
 RED='\033[0;31m'
@@ -105,15 +110,31 @@ else
 fi
 
 # Check for configuration file
-if [[ -f ~/Dev/mac-setup/configs/shell/zshrc ]]; then
-    if grep -q "Dev/mac-setup/configs/shell/zshrc" ~/.zshrc 2>/dev/null; then
-        print_success "Shell configuration sourced in ~/.zshrc"
+if [[ -f ~/.zshrc ]]; then
+    # Check if Homebrew is configured
+    if grep -q "brew shellenv" ~/.zshrc 2>/dev/null; then
+        print_success "Homebrew configured in ~/.zshrc"
     else
-        print_warning "Shell configuration exists but not sourced"
-        print_warning "Add to ~/.zshrc: source ~/Dev/mac-setup/configs/shell/zshrc"
+        print_warning "Homebrew not configured in ~/.zshrc"
+        print_warning "Run: ./scripts/configure-shell.sh"
+    fi
+    
+    # Check if asdf is configured
+    if grep -q "asdf.sh" ~/.zshrc 2>/dev/null; then
+        print_success "asdf configured in ~/.zshrc"
+    else
+        print_warning "asdf not configured in ~/.zshrc"
+    fi
+    
+    # Check if direnv is configured  
+    if grep -q "direnv hook" ~/.zshrc 2>/dev/null; then
+        print_success "direnv configured in ~/.zshrc"
+    else
+        print_warning "direnv not configured in ~/.zshrc"
     fi
 else
-    print_warning "Shell configuration file not found"
+    print_error "~/.zshrc not found"
+    print_warning "Run: ./scripts/configure-shell.sh"
 fi
 
 # Check special cases
@@ -137,5 +158,23 @@ fi
 
 # Summary
 print_section "Summary"
-echo "Run 'brew bundle check --file=$BREWFILE' for detailed status"
-echo "Run 'brew doctor' to check for Homebrew issues"
+
+# Count issues
+ERRORS=$(grep "✗" /tmp/verify_output 2>/dev/null | wc -l | tr -d ' ')
+WARNINGS=$(grep "!" /tmp/verify_output 2>/dev/null | wc -l | tr -d ' ') 
+
+if [[ $ERRORS -gt 0 ]]; then
+    echo -e "${RED}Found $ERRORS errors${NC}"
+fi
+if [[ $WARNINGS -gt 0 ]]; then
+    echo -e "${YELLOW}Found $WARNINGS warnings${NC}"
+fi
+
+echo ""
+echo "Quick fixes:"
+echo "1. Configure shell:     ./scripts/configure-shell.sh"
+echo "2. Fix Docker:          ./scripts/fix-docker.sh"
+echo "3. Retry installations: brew bundle --file=$BREWFILE"
+echo "4. Check Homebrew:      brew doctor"
+echo ""
+echo "For more help, see: docs/troubleshooting.md"
