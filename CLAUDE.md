@@ -30,6 +30,9 @@ brew bundle check --file=scripts/Brewfile
 # Install Homebrew and core applications
 ./scripts/install-homebrew-minimal.sh
 
+# Configure shell environment (minimal)
+./scripts/configure-shell.sh
+
 # Configure Git
 ./scripts/setup-git.sh
 
@@ -38,6 +41,9 @@ brew bundle check --file=scripts/Brewfile
 
 # Full development environment setup
 ./scripts/setup-dev.sh
+
+# Optional: Enhanced shell with Oh My Zsh
+# ./scripts/setup-shell-enhanced.sh
 ```
 
 ## Repository Architecture

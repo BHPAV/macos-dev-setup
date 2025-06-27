@@ -131,7 +131,7 @@ The following scripts will automate most of this setup:
 
 1. `scripts/install-homebrew.sh` - Installs Homebrew and essential command line tools
 2. `scripts/install-apps.sh` - Installs applications from the curated lists
-3. `scripts/setup-shell.sh` - Configures shell environment and aliases
+3. `scripts/configure-shell.sh` - Minimal shell configuration with essential aliases
 4. `scripts/setup-dev.sh` - Sets up development tools and languages
 
 ## Manual Steps

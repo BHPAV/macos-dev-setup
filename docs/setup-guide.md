@@ -35,8 +35,11 @@ Execute the scripts in the following order:
 # Install Homebrew and essential tools
 ./scripts/install-homebrew.sh
 
-# Set up shell environment
-./scripts/setup-shell.sh
+# Configure shell environment (minimal)
+./scripts/configure-shell.sh
+
+# Optional: Enhanced shell with Oh My Zsh (adds complexity)
+# ./scripts/setup-shell-enhanced.sh
 
 # Set up development environment
 ./scripts/setup-dev.sh
@@ -93,11 +96,17 @@ The `install-homebrew.sh` script will install:
 - Essential command line utilities
 
 #### 2.2 Shell Configuration
-The `setup-shell.sh` script will configure:
-- Oh My Zsh
-- Powerlevel10k theme
-- Custom aliases and functions
-- Zsh plugins
+The `configure-shell.sh` script will add:
+- Homebrew to PATH
+- asdf version manager
+- direnv environment loader
+- Essential aliases (git, python, docker)
+- Python virtual environment helpers
+
+For advanced users, `setup-shell-enhanced.sh` optionally adds:
+- Oh My Zsh framework
+- Additional plugins and themes
+- Extended aliases and functions
 
 #### 2.3 Programming Languages
 The `setup-dev.sh` script will install:

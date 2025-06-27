@@ -196,6 +196,6 @@ brew cleanup
 
 print_status "✅ Homebrew installation complete!"
 print_status "Next steps:"
-print_status "1. Run: ./scripts/setup-shell.sh"
+print_status "1. Run: ./scripts/configure-shell.sh"
 print_status "2. Run: ./scripts/setup-dev.sh"
 print_status "3. Configure your applications manually" 
