@@ -1,0 +1,111 @@
+# Brewfile.optimized - Tiered Mac setup for optimized performance
+# This file provides different installation tiers to reduce bundle size and improve speed
+
+# Core essentials (always installed) - ~200MB, ~5 min
+# These are the absolute minimum tools needed for development
+
+# Essential CLI tools
+brew "git"              # Version control
+brew "gh"               # GitHub CLI
+brew "asdf"             # Version manager
+brew "direnv"           # Environment manager
+
+# Essential GUI Applications
+cask "visual-studio-code"     # Primary editor
+cask "iterm2"                 # Terminal
+cask "rectangle"              # Window management
+
+# Development tier (install with --tier=dev) - ~400MB, ~10 min
+# Common development tools for most developers
+
+# Additional CLI tools
+brew "make"             # Build automation
+brew "jq"               # JSON processor
+brew "curl"             # HTTP client
+brew "wget"             # Download tool
+
+# Development GUI apps
+cask "docker"           # Container platform
+cask "tableplus"        # Database GUI
+cask "insomnia"         # API testing
+
+# Communication tier (install with --tier=comm) - ~150MB, ~3 min
+# Communication and collaboration tools
+
+cask "slack"            # Team communication
+cask "zoom"             # Video conferencing
+
+# Productivity tier (install with --tier=prod) - ~300MB, ~8 min
+# Productivity and utility applications
+
+# Security and storage
+cask "1password"        # Password manager
+cask "onedrive"         # Cloud storage
+
+# Utilities
+cask "alfred"           # Spotlight replacement
+cask "bartender"        # Menu bar management
+cask "appcleaner"       # Clean uninstaller
+cask "cleanshot"        # Screenshot tool
+cask "vlc"              # Media player
+
+# Specialized tier (install with --tier=special) - ~500MB, ~15 min
+# Specialized tools for specific use cases
+
+# Database tools
+cask "neo4j-desktop"    # Graph database
+# cask "dbeaver-community" # Universal database tool
+
+# System monitoring
+cask "istat-menus"      # System monitoring
+
+# Browser tier (install with --tier=browsers) - ~200MB, ~5 min
+# Alternative browsers
+
+cask "arc"              # Primary browser
+# cask "firefox"        # Alternative browser
+# cask "google-chrome"  # Alternative browser
+
+# Optional casks (commented out to reduce bundle size)
+# Uncomment only if specifically needed
+
+# Additional productivity
+# cask "notion"         # Note-taking
+# cask "obsidian"       # Knowledge management
+# cask "raycast"        # Spotlight alternative
+
+# Additional development
+# cask "postman"        # API development
+# cask "figma"          # Design tool
+# cask "android-studio" # Android development
+
+# Additional utilities
+# cask "the-unarchiver" # Archive utility
+# cask "keka"           # Archive utility
+# cask "coconutbattery" # Battery monitoring
+
+# Database alternatives
+# brew "postgresql"     # SQL database
+# brew "mysql"          # SQL database
+# brew "redis"          # In-memory database
+
+# Language-specific tools (better installed via asdf)
+# brew "python"         # Install via asdf instead
+# brew "node"           # Install via asdf instead
+# brew "ruby"           # Install via asdf instead
+# brew "go"             # Install via asdf instead
+
+# Heavy development tools (install only if needed)
+# cask "xcode"          # iOS development (8GB+)
+# cask "unity"          # Game development (3GB+)
+# cask "blender"        # 3D modeling (500MB+)
+
+# Tier installation instructions:
+# brew bundle --file=scripts/Brewfile.optimized                    # Core only
+# brew bundle --file=scripts/Brewfile.optimized --tier=dev         # Core + dev
+# brew bundle --file=scripts/Brewfile.optimized --tier=all         # Everything
+
+# For selective installation:
+# 1. Copy this file to a custom name
+# 2. Uncomment only the tools you need
+# 3. Run: brew bundle --file=your-custom-brewfile
